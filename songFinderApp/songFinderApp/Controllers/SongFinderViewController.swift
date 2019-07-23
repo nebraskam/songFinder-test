@@ -18,7 +18,7 @@ class SongFinderViewController: UIViewController {
     //MARK: Vars
    // var songs = ["Hello", "Sunshine", "Jump"]
     let reuseIdentifier = "SongCell"
-   // var filteredSong = [songs]()
+    var filteredTracks = [TrackModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class SongFinderViewController: UIViewController {
         tableView.delegate = self
         self.setupView()
         self.setupViewCell()
-        
+        self.getMusic()
         
         
     }
@@ -72,12 +72,34 @@ class SongFinderViewController: UIViewController {
     
     //MARK: Funcs
     
-    private func filterSongs(for searchText: String) {
-//        filteredSong = songs.filter { footballer in
+    private func getMusic(){
+        
+        let searchText = searchController.searchBar.text
+        GlobalServices.shared.musicServices.getMusic(with: "Hello", limit: 20) { (response) in
+            
+            switch response{
+            case .success(data: let pagedListTracks):
+                
+                for track in pagedListTracks.results{
+                    self.filteredTracks = pagedListTracks.results
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    print(track.trackName)
+                }
+                
+            case .error(error: let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+//    private func filterTracks(for searchText: String) {
+//        filteredTracks = songs.filter { footballer in
 //            return songs.name.lowercased().contains(searchText.lowercased())
 //        }
 //        tableView.reloadData()
-    }
+//    }
  
 }
 
@@ -85,23 +107,19 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        if searchController.isActive && searchController.searchBar.text != ""{
-//            return filteredSong.count
-//        }
-        
-        return 2
+            return filteredTracks.count
+  
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! SongCellViewController
+        var track = filteredTracks[indexPath.row]
         
-//        let song: SongModel
-//        if searchController.isActive && searchController.searchBar.text != "" {
-//            song = filteredSong[indexPath.row]
-//        } else {
-//            song = songs[indexPath.row]
-//        }
+        track = filteredTracks[indexPath.row]
+        cell.artistName.text = track.artistName
+        cell.songName.text = track.trackName
+        
         
         return cell
     }
@@ -115,13 +133,12 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
 }
 
 
 extension SongFinderViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        filterSongs(for: searchController.searchBar.text ?? "")
+//        filterSongs(for: searchController.searchBar.text ?? "")
     }
 }
