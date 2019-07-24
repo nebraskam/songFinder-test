@@ -30,6 +30,7 @@ class SongFinderViewController: UIViewController {
         self.setupView()
         self.setupSearchBar()
         self.setupViewCell()
+        //Coloco valores de inicio//
         self.getMusic(searchText: "Adele", limit: 20)
         
         
@@ -103,13 +104,10 @@ class SongFinderViewController: UIViewController {
             switch response{
             case .success(data: let pagedListTracks):
                 
-                for track in pagedListTracks.results{
-                    self.filteredTracks = pagedListTracks.results
+                self.filteredTracks = pagedListTracks.results
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                    print(track.trackName)
-                }
                 
             case .error(error: let error):
                 print(error.localizedDescription)
@@ -122,11 +120,13 @@ class SongFinderViewController: UIViewController {
  
 }
 
+//MARK: Implement TableView
+
 extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-            return filteredTracks.count
+        return filteredTracks.count
   
     }
     
@@ -160,6 +160,7 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
     
 }
 
+//MARK: Search Updating
 
 extension SongFinderViewController: UISearchResultsUpdating {
     

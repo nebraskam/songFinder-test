@@ -24,8 +24,7 @@ class SongDetailViewController: UIViewController {
     var album: TrackModel!
     var songs:[TrackModel] = []
     var selectedSong: TrackModel?
-    let reuseIdentifier = "SongDetailHeaderCell"
-    let reuseIdentifierSong = "SongDetailCell"
+    let reuseIdentifier = "SongDetailCell"
     var player: AVAudioPlayer?
     
     static func createController(album:TrackModel) -> SongDetailViewController{
@@ -49,26 +48,41 @@ class SongDetailViewController: UIViewController {
 
     private func setupView(){
         
-        //Confg TableView
-        view.addSubview(tableView)
+        //Add Header view//
         
-        // Eliminar extra cells//
+        let headerView = SongDetailHeaderViewController.create()
+        headerView.songAlbum.text = album.collectionName
+        headerView.songName.text = album.trackName
+        headerView.songArtist.text = album.artistName
+        
+        if let urlString = album.artworkUrl100{
+            headerView.songImage.sd_setImage(with: URL(string:urlString))
+        }
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 150)
+        tableView.tableHeaderView = headerView
+        
+        // Delete extra cells//
         tableView.tableFooterView = UIView()
         
         //Confg Navigation
-        navigationItem.title = album.artistName
+        navigationItem.title = album.collectionName
         let backButtonItem = UIBarButtonItem()
         backButtonItem.title = ""
         self.navigationItem.backBarButtonItem = backButtonItem
+        
+        //Footer image placeholder //
+        
+        let image = UIImage(named: "music")
+        self.previewSongImage.image = image
         
     }
     
     private func setupViewCell(){
         
-        var nibCell = UINib(nibName: reuseIdentifier, bundle: nil)
-        nibCell = UINib(nibName: reuseIdentifierSong, bundle: nil)
+        let nibCell = UINib(nibName: reuseIdentifier, bundle: nil)
         tableView.register(nibCell, forCellReuseIdentifier: reuseIdentifier)
-        tableView.register(nibCell, forCellReuseIdentifier: reuseIdentifierSong )
+      
         
     }
     
@@ -188,42 +202,25 @@ extension SongDetailViewController : UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return songs.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if indexPath.row == 0 {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! SongDetailHeaderCellViewController
-//
-//        let song = songs[indexPath.row]
-//        cell.songName.text = song.trackName
-//        cell.songArtist.text = song.artistName
-//        cell.songAlbum.text = song.collectionName
-//
-//        if let urlString = song.artworkUrl100{
-//            cell.songImage.sd_setImage(with: URL(string:urlString))
-//        }
-//
-//
-//        return cell
-//
-//        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierSong) as! SongDetailCellViewController
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! SongDetailCellViewController
+
         let song = songs[indexPath.row]
         cell.songName.text = song.trackName
-        
+            
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-
-        return 150
+    
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -16,7 +16,9 @@ class GlobalServices{
     public let songServices: SongServices
     
     static let shared:GlobalServices = GlobalServices()
+    
     private init(){
+        
         self.apiSettings = ApiSettings.init(baseUrl: "https://itunes.apple.com")
         self.musicServices = MusicServices(settings:apiSettings,route:"search")
         self.songServices = SongServices(settings:apiSettings,route:"lookup")

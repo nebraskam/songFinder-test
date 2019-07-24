@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A01A59922E89A5500FAE63B /* SongServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A59822E89A5500FAE63B /* SongServices.swift */; };
-		1A01A59B22E8B24900FAE63B /* Dowloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A59A22E8B24900FAE63B /* Dowloader.swift */; };
+		1A01A59B22E8B24900FAE63B /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A59A22E8B24900FAE63B /* Downloader.swift */; };
+		1A01A59D22E8BF1B00FAE63B /* SongDetailHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A59C22E8BF1B00FAE63B /* SongDetailHeaderViewController.swift */; };
 		1A12B17122E641F300DA77FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B17022E641F300DA77FB /* AppDelegate.swift */; };
 		1A12B17322E641F300DA77FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B17222E641F300DA77FB /* ViewController.swift */; };
 		1A12B17622E641F300DA77FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A12B17422E641F300DA77FB /* Main.storyboard */; };
@@ -28,8 +29,7 @@
 		1AFDAE5A22E78F3600F4A872 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5922E78F3600F4A872 /* URLExtension.swift */; };
 		1AFDAE5C22E7BC6B00F4A872 /* SongDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5B22E7BC6B00F4A872 /* SongDetail.storyboard */; };
 		1AFDAE5E22E7BD1800F4A872 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5D22E7BD1800F4A872 /* SongDetailViewController.swift */; };
-		1AFDAE6222E7C79B00F4A872 /* SongDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6122E7C79B00F4A872 /* SongDetailHeaderCell.xib */; };
-		1AFDAE6422E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6322E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift */; };
+		1AFDAE6222E7C79B00F4A872 /* SongDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6122E7C79B00F4A872 /* SongDetailHeader.xib */; };
 		1AFDAE6622E7D01700F4A872 /* SongDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6522E7D01700F4A872 /* SongDetailCell.xib */; };
 		1AFDAE6822E7D1A400F4A872 /* SongDetailCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6722E7D1A400F4A872 /* SongDetailCellViewController.swift */; };
 		1D1C026A2B5F6B791958AD53 /* Pods_songFinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF25BDF2624F0C1CABA27BE /* Pods_songFinderApp.framework */; };
@@ -37,7 +37,8 @@
 
 /* Begin PBXFileReference section */
 		1A01A59822E89A5500FAE63B /* SongServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongServices.swift; sourceTree = "<group>"; };
-		1A01A59A22E8B24900FAE63B /* Dowloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dowloader.swift; sourceTree = "<group>"; };
+		1A01A59A22E8B24900FAE63B /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		1A01A59C22E8BF1B00FAE63B /* SongDetailHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailHeaderViewController.swift; sourceTree = "<group>"; };
 		1A12B16D22E641F300DA77FB /* songFinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = songFinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A12B17022E641F300DA77FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A12B17222E641F300DA77FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,8 +60,7 @@
 		1AFDAE5922E78F3600F4A872 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		1AFDAE5B22E7BC6B00F4A872 /* SongDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SongDetail.storyboard; sourceTree = "<group>"; };
 		1AFDAE5D22E7BD1800F4A872 /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		1AFDAE6122E7C79B00F4A872 /* SongDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetailHeaderCell.xib; sourceTree = "<group>"; };
-		1AFDAE6322E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailHeaderCellViewController.swift; sourceTree = "<group>"; };
+		1AFDAE6122E7C79B00F4A872 /* SongDetailHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetailHeader.xib; sourceTree = "<group>"; };
 		1AFDAE6522E7D01700F4A872 /* SongDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetailCell.xib; sourceTree = "<group>"; };
 		1AFDAE6722E7D1A400F4A872 /* SongDetailCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailCellViewController.swift; sourceTree = "<group>"; };
 		53CFB26BBFA1EC3032E768A1 /* Pods-songFinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-songFinderApp.debug.xcconfig"; path = "Target Support Files/Pods-songFinderApp/Pods-songFinderApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			children = (
 				1A12B19122E6B05500DA77FB /* TrackModel.swift */,
 				1AFDAE5722E7878200F4A872 /* PagedList.swift */,
-				1A01A59A22E8B24900FAE63B /* Dowloader.swift */,
+				1A01A59A22E8B24900FAE63B /* Downloader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,10 +195,10 @@
 		1AFDAE6022E7C73300F4A872 /* SongDetailCell */ = {
 			isa = PBXGroup;
 			children = (
-				1AFDAE6122E7C79B00F4A872 /* SongDetailHeaderCell.xib */,
-				1AFDAE6322E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift */,
+				1AFDAE6122E7C79B00F4A872 /* SongDetailHeader.xib */,
 				1AFDAE6522E7D01700F4A872 /* SongDetailCell.xib */,
 				1AFDAE6722E7D1A400F4A872 /* SongDetailCellViewController.swift */,
+				1A01A59C22E8BF1B00FAE63B /* SongDetailHeaderViewController.swift */,
 			);
 			path = SongDetailCell;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 				1A12B17B22E641F400DA77FB /* LaunchScreen.storyboard in Resources */,
 				1A12B18E22E66F0000DA77FB /* SongCell.xib in Resources */,
 				1A12B17822E641F400DA77FB /* Assets.xcassets in Resources */,
-				1AFDAE6222E7C79B00F4A872 /* SongDetailHeaderCell.xib in Resources */,
+				1AFDAE6222E7C79B00F4A872 /* SongDetailHeader.xib in Resources */,
 				1A12B17622E641F300DA77FB /* Main.storyboard in Resources */,
 				1AFDAE6622E7D01700F4A872 /* SongDetailCell.xib in Resources */,
 				1AFDAE5C22E7BC6B00F4A872 /* SongDetail.storyboard in Resources */,
@@ -345,16 +345,16 @@
 				1A12B18B22E646AE00DA77FB /* SongFinderViewController.swift in Sources */,
 				1AFDAE6822E7D1A400F4A872 /* SongDetailCellViewController.swift in Sources */,
 				1AFDAE4D22E7724A00F4A872 /* ApiRest.swift in Sources */,
+				1A01A59D22E8BF1B00FAE63B /* SongDetailHeaderViewController.swift in Sources */,
 				1A12B19222E6B05500DA77FB /* TrackModel.swift in Sources */,
 				1AFDAE5A22E78F3600F4A872 /* URLExtension.swift in Sources */,
 				1A12B19022E6737700DA77FB /* SongCellViewController.swift in Sources */,
 				1A01A59922E89A5500FAE63B /* SongServices.swift in Sources */,
 				1AFDAE5E22E7BD1800F4A872 /* SongDetailViewController.swift in Sources */,
 				1AFDAE5622E776E500F4A872 /* MusicServices.swift in Sources */,
-				1AFDAE6422E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift in Sources */,
 				1AFDAE5322E7759900F4A872 /* GlobalServices.swift in Sources */,
 				1AFDAE4F22E7747900F4A872 /* ResultTask.swift in Sources */,
-				1A01A59B22E8B24900FAE63B /* Dowloader.swift in Sources */,
+				1A01A59B22E8B24900FAE63B /* Downloader.swift in Sources */,
 				1A12B17322E641F300DA77FB /* ViewController.swift in Sources */,
 				1A12B17122E641F300DA77FB /* AppDelegate.swift in Sources */,
 			);

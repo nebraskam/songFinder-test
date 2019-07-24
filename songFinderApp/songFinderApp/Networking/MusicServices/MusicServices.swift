@@ -29,10 +29,7 @@ class MusicServices : ApiRest{
                 completion(ResultTask.error(error: error))
                 return
             }
-            guard let response = response else {
-                // Handle Empty Response
-                return
-            }
+
             guard let data = data else {
                 // Handle Empty Data
                 return

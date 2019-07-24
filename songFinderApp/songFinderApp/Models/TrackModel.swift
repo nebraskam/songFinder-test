@@ -88,7 +88,7 @@ struct TrackModel: Codable {
             includingPropertiesForKeys: nil
         )
         
-        let index = documents.index { (url) -> Bool in
+        let index = documents.firstIndex { (url) -> Bool in
             return url.lastPathComponent.contains("\(id)")
         }
         
