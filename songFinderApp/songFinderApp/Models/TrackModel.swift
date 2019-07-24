@@ -13,10 +13,10 @@ struct TrackModel: Codable {
     let artistName:String
     let collectionName:String
     let trackName: String
-    let artistViewUrl:String
-    let collectionViewUrl:String
-    let artworkUrl30 : String
-    let artworkUrl60 : String
-    let artworkUrl100 : String
+    let artistViewUrl:String?
+    let collectionViewUrl:String?
+    let artworkUrl30 : String?
+    let artworkUrl60 : String?
+    let artworkUrl100 : String?
       
 }

@@ -16,9 +16,10 @@ class SongFinderViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
     //MARK: Vars
-   // var songs = ["Hello", "Sunshine", "Jump"]
+
     let reuseIdentifier = "SongCell"
     var filteredTracks = [TrackModel]()
+    var searchTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,9 @@ class SongFinderViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         self.setupView()
+        self.setupSearchBar()
         self.setupViewCell()
-        self.getMusic()
+        self.getMusic(searchText: "Adele", limit: 20)
         
         
     }
@@ -52,15 +54,45 @@ class SongFinderViewController: UIViewController {
         let backButtonItem = UIBarButtonItem()
         backButtonItem.title = ""
         self.navigationItem.backBarButtonItem = backButtonItem
+        navigationController?.navigationBar.backgroundColor = UIColor.lightGray
         
         //Confg Search Bar
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.white
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//        tableView.tableHeaderView = searchController.searchBar
+//        searchController.searchBar.tintColor = UIColor.black
+//        searchController.searchBar.barTintColor = UIColor.white
+      
         
+        
+    }
+    
+    private func setupSearchBar(){
+        
+        // set search bar //
+        
+        if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            //textfield.textColor = // Set text color
+            if let backgroundview = textfield.subviews.first {
+                
+                // Background color
+                backgroundview.backgroundColor = .white
+                // Rounded corner
+                backgroundview.layer.cornerRadius = 10
+                backgroundview.clipsToBounds = true
+                
+            }
+        }
+        
+            searchController.searchResultsUpdater = self
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.hidesBottomBarWhenPushed = true
+            definesPresentationContext = true
+        
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = true
+
     }
     
     private func setupViewCell(){
@@ -72,10 +104,9 @@ class SongFinderViewController: UIViewController {
     
     //MARK: Funcs
     
-    private func getMusic(){
+    private func getMusic(searchText:String,limit:Int){
         
-        let searchText = searchController.searchBar.text
-        GlobalServices.shared.musicServices.getMusic(with: "Hello", limit: 20) { (response) in
+        GlobalServices.shared.musicServices.getMusic(with: searchText, limit: limit) { (response) in
             
             switch response{
             case .success(data: let pagedListTracks):
@@ -94,12 +125,8 @@ class SongFinderViewController: UIViewController {
         }
     }
 
-//    private func filterTracks(for searchText: String) {
-//        filteredTracks = songs.filter { footballer in
-//            return songs.name.lowercased().contains(searchText.lowercased())
-//        }
-//        tableView.reloadData()
-//    }
+    private func filterTracks(for searchText: String) {
+    }
  
 }
 
@@ -131,6 +158,12 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        //Present song detail
+        let storyboard = UIStoryboard(name: "SongDetail", bundle: nil)
+        let songDetailVC = storyboard.instantiateInitialViewController() as! SongDetailViewController
+        self.navigationController?.pushViewController(songDetailVC, animated: true)
+        
     }
     
 }
@@ -139,6 +172,26 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
 extension SongFinderViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-//        filterSongs(for: searchController.searchBar.text ?? "")
+        
+        if let timer = self.searchTimer{
+            timer.invalidate()
+        }
+        
+        guard let text = searchController.searchBar.text else{
+            return
+        }
+        
+        if text.isEmpty{
+            return
+        }
+        
+        self.searchTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(1), repeats: false) { (timer) in
+            
+            print("search text")
+            self.getMusic(searchText: text, limit: 20)
+            timer.invalidate()
+            
+        }
     }
+    
 }

@@ -24,6 +24,13 @@
 		1AFDAE5622E776E500F4A872 /* MusicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5522E776E500F4A872 /* MusicServices.swift */; };
 		1AFDAE5822E7878200F4A872 /* PagedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5722E7878200F4A872 /* PagedList.swift */; };
 		1AFDAE5A22E78F3600F4A872 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5922E78F3600F4A872 /* URLExtension.swift */; };
+		1AFDAE5C22E7BC6B00F4A872 /* SongDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5B22E7BC6B00F4A872 /* SongDetail.storyboard */; };
+		1AFDAE5E22E7BD1800F4A872 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE5D22E7BD1800F4A872 /* SongDetailViewController.swift */; };
+		1AFDAE6222E7C79B00F4A872 /* SongDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6122E7C79B00F4A872 /* SongDetailHeaderCell.xib */; };
+		1AFDAE6422E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6322E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift */; };
+		1AFDAE6622E7D01700F4A872 /* SongDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6522E7D01700F4A872 /* SongDetailCell.xib */; };
+		1AFDAE6822E7D1A400F4A872 /* SongDetailCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDAE6722E7D1A400F4A872 /* SongDetailCellViewController.swift */; };
+		1D1C026A2B5F6B791958AD53 /* Pods_songFinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF25BDF2624F0C1CABA27BE /* Pods_songFinderApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +53,15 @@
 		1AFDAE5522E776E500F4A872 /* MusicServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServices.swift; sourceTree = "<group>"; };
 		1AFDAE5722E7878200F4A872 /* PagedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedList.swift; sourceTree = "<group>"; };
 		1AFDAE5922E78F3600F4A872 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		1AFDAE5B22E7BC6B00F4A872 /* SongDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SongDetail.storyboard; sourceTree = "<group>"; };
+		1AFDAE5D22E7BD1800F4A872 /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		1AFDAE6122E7C79B00F4A872 /* SongDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetailHeaderCell.xib; sourceTree = "<group>"; };
+		1AFDAE6322E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailHeaderCellViewController.swift; sourceTree = "<group>"; };
+		1AFDAE6522E7D01700F4A872 /* SongDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetailCell.xib; sourceTree = "<group>"; };
+		1AFDAE6722E7D1A400F4A872 /* SongDetailCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailCellViewController.swift; sourceTree = "<group>"; };
+		53CFB26BBFA1EC3032E768A1 /* Pods-songFinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-songFinderApp.debug.xcconfig"; path = "Target Support Files/Pods-songFinderApp/Pods-songFinderApp.debug.xcconfig"; sourceTree = "<group>"; };
+		76B1F1CBC366C5513C9757D3 /* Pods-songFinderApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-songFinderApp.release.xcconfig"; path = "Target Support Files/Pods-songFinderApp/Pods-songFinderApp.release.xcconfig"; sourceTree = "<group>"; };
+		EDF25BDF2624F0C1CABA27BE /* Pods_songFinderApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_songFinderApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D1C026A2B5F6B791958AD53 /* Pods_songFinderApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +81,8 @@
 			children = (
 				1A12B16F22E641F300DA77FB /* songFinderApp */,
 				1A12B16E22E641F300DA77FB /* Products */,
+				C2D03655C8E199CB036665A9 /* Pods */,
+				83E8437B05C7B82708F7DCA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,8 +114,10 @@
 		1A12B18222E6427900DA77FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1AFDAE6022E7C73300F4A872 /* SongDetailCell */,
 				1A12B18C22E66EC700DA77FB /* SongCell */,
 				1A12B18822E6444E00DA77FB /* SongFinder.storyboard */,
+				1AFDAE5B22E7BC6B00F4A872 /* SongDetail.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				1A12B18A22E646AE00DA77FB /* SongFinderViewController.swift */,
+				1AFDAE5D22E7BD1800F4A872 /* SongDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +186,35 @@
 			path = MusicServices;
 			sourceTree = "<group>";
 		};
+		1AFDAE6022E7C73300F4A872 /* SongDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				1AFDAE6122E7C79B00F4A872 /* SongDetailHeaderCell.xib */,
+				1AFDAE6322E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift */,
+				1AFDAE6522E7D01700F4A872 /* SongDetailCell.xib */,
+				1AFDAE6722E7D1A400F4A872 /* SongDetailCellViewController.swift */,
+			);
+			path = SongDetailCell;
+			sourceTree = "<group>";
+		};
+		83E8437B05C7B82708F7DCA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDF25BDF2624F0C1CABA27BE /* Pods_songFinderApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2D03655C8E199CB036665A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53CFB26BBFA1EC3032E768A1 /* Pods-songFinderApp.debug.xcconfig */,
+				76B1F1CBC366C5513C9757D3 /* Pods-songFinderApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A12B17F22E641F400DA77FB /* Build configuration list for PBXNativeTarget "songFinderApp" */;
 			buildPhases = (
+				6C470EF30ECC77A911D17BD5 /* [CP] Check Pods Manifest.lock */,
 				1A12B16922E641F300DA77FB /* Sources */,
 				1A12B16A22E641F300DA77FB /* Frameworks */,
 				1A12B16B22E641F300DA77FB /* Resources */,
+				99D1C6C2665F98706AC11DA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,12 +278,57 @@
 				1A12B17B22E641F400DA77FB /* LaunchScreen.storyboard in Resources */,
 				1A12B18E22E66F0000DA77FB /* SongCell.xib in Resources */,
 				1A12B17822E641F400DA77FB /* Assets.xcassets in Resources */,
+				1AFDAE6222E7C79B00F4A872 /* SongDetailHeaderCell.xib in Resources */,
 				1A12B17622E641F300DA77FB /* Main.storyboard in Resources */,
+				1AFDAE6622E7D01700F4A872 /* SongDetailCell.xib in Resources */,
+				1AFDAE5C22E7BC6B00F4A872 /* SongDetail.storyboard in Resources */,
 				1A12B18922E6444E00DA77FB /* SongFinder.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C470EF30ECC77A911D17BD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-songFinderApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99D1C6C2665F98706AC11DA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A12B16922E641F300DA77FB /* Sources */ = {
@@ -240,11 +338,14 @@
 				1AFDAE4B22E771F900F4A872 /* Settings.swift in Sources */,
 				1AFDAE5822E7878200F4A872 /* PagedList.swift in Sources */,
 				1A12B18B22E646AE00DA77FB /* SongFinderViewController.swift in Sources */,
+				1AFDAE6822E7D1A400F4A872 /* SongDetailCellViewController.swift in Sources */,
 				1AFDAE4D22E7724A00F4A872 /* ApiRest.swift in Sources */,
 				1A12B19222E6B05500DA77FB /* TrackModel.swift in Sources */,
 				1AFDAE5A22E78F3600F4A872 /* URLExtension.swift in Sources */,
 				1A12B19022E6737700DA77FB /* SongCellViewController.swift in Sources */,
+				1AFDAE5E22E7BD1800F4A872 /* SongDetailViewController.swift in Sources */,
 				1AFDAE5622E776E500F4A872 /* MusicServices.swift in Sources */,
+				1AFDAE6422E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift in Sources */,
 				1AFDAE5322E7759900F4A872 /* GlobalServices.swift in Sources */,
 				1AFDAE4F22E7747900F4A872 /* ResultTask.swift in Sources */,
 				1A12B17322E641F300DA77FB /* ViewController.swift in Sources */,
@@ -392,6 +493,7 @@
 		};
 		1A12B18022E641F400DA77FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53CFB26BBFA1EC3032E768A1 /* Pods-songFinderApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -409,6 +511,7 @@
 		};
 		1A12B18122E641F400DA77FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B1F1CBC366C5513C9757D3 /* Pods-songFinderApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
