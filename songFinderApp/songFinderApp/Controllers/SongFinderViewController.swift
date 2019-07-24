@@ -20,6 +20,7 @@ class SongFinderViewController: UIViewController {
     let reuseIdentifier = "SongCell"
     var filteredTracks = [TrackModel]()
     var searchTimer: Timer?
+    var tracks: [TrackModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,15 +56,6 @@ class SongFinderViewController: UIViewController {
         backButtonItem.title = ""
         self.navigationItem.backBarButtonItem = backButtonItem
         navigationController?.navigationBar.backgroundColor = UIColor.lightGray
-        
-        //Confg Search Bar
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-//        definesPresentationContext = true
-//        tableView.tableHeaderView = searchController.searchBar
-//        searchController.searchBar.tintColor = UIColor.black
-//        searchController.searchBar.barTintColor = UIColor.white
-      
         
         
     }
@@ -160,9 +152,9 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
         tableView.deselectRow(at: indexPath, animated: true)
         
         //Present song detail
-        let storyboard = UIStoryboard(name: "SongDetail", bundle: nil)
-        let songDetailVC = storyboard.instantiateInitialViewController() as! SongDetailViewController
-        self.navigationController?.pushViewController(songDetailVC, animated: true)
+        let album = self.filteredTracks[indexPath.row]
+        let songDetailController = SongDetailViewController.createController(album: album)
+        self.navigationController?.pushViewController(songDetailController, animated: true)
         
     }
     

@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A01A59922E89A5500FAE63B /* SongServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A59822E89A5500FAE63B /* SongServices.swift */; };
+		1A01A59B22E8B24900FAE63B /* Dowloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A01A59A22E8B24900FAE63B /* Dowloader.swift */; };
 		1A12B17122E641F300DA77FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B17022E641F300DA77FB /* AppDelegate.swift */; };
 		1A12B17322E641F300DA77FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B17222E641F300DA77FB /* ViewController.swift */; };
 		1A12B17622E641F300DA77FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A12B17422E641F300DA77FB /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A01A59822E89A5500FAE63B /* SongServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongServices.swift; sourceTree = "<group>"; };
+		1A01A59A22E8B24900FAE63B /* Dowloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dowloader.swift; sourceTree = "<group>"; };
 		1A12B16D22E641F300DA77FB /* songFinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = songFinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A12B17022E641F300DA77FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A12B17222E641F300DA77FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				1A12B19122E6B05500DA77FB /* TrackModel.swift */,
 				1AFDAE5722E7878200F4A872 /* PagedList.swift */,
+				1A01A59A22E8B24900FAE63B /* Dowloader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				1AFDAE5522E776E500F4A872 /* MusicServices.swift */,
+				1A01A59822E89A5500FAE63B /* SongServices.swift */,
 			);
 			path = MusicServices;
 			sourceTree = "<group>";
@@ -211,7 +217,6 @@
 				53CFB26BBFA1EC3032E768A1 /* Pods-songFinderApp.debug.xcconfig */,
 				76B1F1CBC366C5513C9757D3 /* Pods-songFinderApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -226,7 +231,7 @@
 				1A12B16922E641F300DA77FB /* Sources */,
 				1A12B16A22E641F300DA77FB /* Frameworks */,
 				1A12B16B22E641F300DA77FB /* Resources */,
-				99D1C6C2665F98706AC11DA4 /* [CP] Embed Pods Frameworks */,
+				585D07C47F2924A0D8BC5FD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,6 +294,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		585D07C47F2924A0D8BC5FD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6C470EF30ECC77A911D17BD5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,23 +333,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		99D1C6C2665F98706AC11DA4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-songFinderApp/Pods-songFinderApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -343,11 +348,13 @@
 				1A12B19222E6B05500DA77FB /* TrackModel.swift in Sources */,
 				1AFDAE5A22E78F3600F4A872 /* URLExtension.swift in Sources */,
 				1A12B19022E6737700DA77FB /* SongCellViewController.swift in Sources */,
+				1A01A59922E89A5500FAE63B /* SongServices.swift in Sources */,
 				1AFDAE5E22E7BD1800F4A872 /* SongDetailViewController.swift in Sources */,
 				1AFDAE5622E776E500F4A872 /* MusicServices.swift in Sources */,
 				1AFDAE6422E7CBCC00F4A872 /* SongDetailHeaderCellViewController.swift in Sources */,
 				1AFDAE5322E7759900F4A872 /* GlobalServices.swift in Sources */,
 				1AFDAE4F22E7747900F4A872 /* ResultTask.swift in Sources */,
+				1A01A59B22E8B24900FAE63B /* Dowloader.swift in Sources */,
 				1A12B17322E641F300DA77FB /* ViewController.swift in Sources */,
 				1A12B17122E641F300DA77FB /* AppDelegate.swift in Sources */,
 			);
