@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SongDetailHeaderViewController : UIView {
+class SongDetailHeaderView : UIView {
 
     //MARK: UIVars
     
@@ -19,8 +19,8 @@ class SongDetailHeaderViewController : UIView {
     @IBOutlet weak var songArtist: UILabel!
     @IBOutlet weak var songAlbum: UILabel!
     
-    class func create() -> SongDetailHeaderViewController{
-            return UINib(nibName: "SongDetailHeader", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! SongDetailHeaderViewController
+    class func create() -> SongDetailHeaderView{
+            return UINib(nibName: "SongDetailHeader", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! SongDetailHeaderView
     }
 
     override func awakeFromNib() {

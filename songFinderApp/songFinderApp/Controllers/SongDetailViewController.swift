@@ -50,7 +50,7 @@ class SongDetailViewController: UIViewController {
         
         //Add Header view//
         
-        let headerView = SongDetailHeaderViewController.create()
+        let headerView = SongDetailHeaderView.create()
         headerView.songAlbum.text = album.collectionName
         headerView.songName.text = album.trackName
         headerView.songArtist.text = album.artistName

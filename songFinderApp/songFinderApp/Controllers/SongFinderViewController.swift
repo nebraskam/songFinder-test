@@ -7,24 +7,27 @@
 //
 
 import UIKit
-
 class SongFinderViewController: UIViewController {
-
+    
     //MARK: UIVars
     
     let tableView = UITableView(frame: .zero, style: .plain)
     let searchController = UISearchController(searchResultsController: nil)
     
     //MARK: Vars
-
+    
     let reuseIdentifier = "SongCell"
     var filteredTracks = [TrackModel]()
     var searchTimer: Timer?
     var tracks: [TrackModel] = []
+    var currentLimit = 20
+    var currentSearchText = ""
+    var paginating: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate = self
         self.setupView()
@@ -78,14 +81,14 @@ class SongFinderViewController: UIViewController {
             }
         }
         
-            searchController.searchResultsUpdater = self
-            searchController.obscuresBackgroundDuringPresentation = false
-            searchController.hidesBottomBarWhenPushed = true
-            definesPresentationContext = true
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesBottomBarWhenPushed = true
+        definesPresentationContext = true
         
-            navigationItem.searchController = searchController
-            navigationItem.hidesSearchBarWhenScrolling = true
-
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
     }
     
     private func setupViewCell(){
@@ -99,25 +102,30 @@ class SongFinderViewController: UIViewController {
     
     private func getMusic(searchText:String,limit:Int){
         
+        self.currentSearchText = searchText
+        self.currentLimit = limit
+        
         GlobalServices.shared.musicServices.getMusic(with: searchText, limit: limit) { (response) in
+            
+            self.paginating = false
             
             switch response{
             case .success(data: let pagedListTracks):
                 
                 self.filteredTracks = pagedListTracks.results
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
             case .error(error: let error):
                 print(error.localizedDescription)
             }
         }
     }
-
+    
     private func filterTracks(for searchText: String) {
     }
- 
+    
 }
 
 //MARK: Implement TableView
@@ -127,11 +135,11 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return filteredTracks.count
-  
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! SongCellViewController
         var track = filteredTracks[indexPath.row]
         
@@ -159,6 +167,23 @@ extension SongFinderViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
 }
+
+//MARK: - Implement Feed Pagination
+extension SongFinderViewController: UIScrollViewDelegate{
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let distance = scrollView.contentSize.height - (targetContentOffset.pointee.y + scrollView.bounds.height)
+        if !paginating && distance < 5 {
+            paginating = true
+            self.getMusic(searchText: currentSearchText, limit: currentLimit + 20)
+            
+        }
+    }
+}
+
 
 //MARK: Search Updating
 
